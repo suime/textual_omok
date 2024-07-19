@@ -1,0 +1,114 @@
+$animation-type: linear;
+$animation-speed: 175ms;
+
+Game {
+    align: center middle;
+    layers: gameplay messages;
+}
+
+GameGrid {
+    layout: grid;
+    grid-size: 20 20;
+    grid-rows: 1fr;
+    grid-columns: 1fr;
+    grid-gutter: 0;
+    layer: gameplay;
+}
+
+GameHeader {
+    background: $primary-background;
+    color: $text;
+    height: 1;
+    dock: top;
+    layer: gameplay;
+}
+
+GameHeader #app-title {
+    width: 40%;
+}
+
+GameHeader #turn-player {
+    width: 20%;
+}
+
+GameHeader #moves {
+    width: 20%;
+}
+
+GameHeader #version {
+    width: 20%;
+}
+
+Footer {
+    height: 1;
+    dock: bottom;
+    layer: gameplay;
+}
+
+GameCell {
+    width: 100%;
+    height: 100%;
+    background: #d9a059;
+    color: black;
+    box-sizing: content-box;
+    transition: background $animation-speed $animation-type, color $animation-speed $animation-type;
+}
+
+GameCell.vkey {
+    border: vkey black;
+}
+
+GameCell.hkey {
+    border: hkey black;
+}
+
+GameCell:hover {
+    /* background: $panel-lighten-1; */
+    border: thick $panel;
+}
+
+GameCell.filled-turn0 {
+    background: black;
+    border: blank;
+}
+
+GameCell.filled-turn1 {
+    background: white;
+    border: blank;
+}
+
+GameCell.filled-turn0:hover {
+    border: thick grey;
+}
+
+GameCell.filled-turn1:hover {
+    border: thick grey;
+}
+
+WinnerMessage {
+    width: 50%;
+    height: 25%;
+    layer: messages;
+    visibility: hidden;
+    content-align: center middle;
+    text-align: center;
+    background: $success;
+    color: $text;
+    border: round;
+    padding: 2;
+}
+
+.visible {
+    visibility: visible;
+}
+
+Help {
+    border: round $primary-lighten-3;
+}
+
+ChatDial {
+    dock: right;
+    width: 30%;
+}
+
+/* five_by_five.tcss ends here */
